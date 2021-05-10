@@ -1,0 +1,10 @@
+coefficients.json
+.venv
+.idea
+requirements.txt
+__pycache__
+libs/models/__pycache__
+libs/utils/__pycache__
+libs/__pycache__
+*/__pycache__
+__pycache__

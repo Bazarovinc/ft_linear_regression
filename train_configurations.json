@@ -1,0 +1,7 @@
+{
+  "learning_rate": 0.9,
+  "dataset": "data.csv",
+  "coefs_start": "random",
+  "visualisation_graphic": true,
+  "visualisation_train": true
+}
