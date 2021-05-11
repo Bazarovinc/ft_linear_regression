@@ -4,7 +4,7 @@
 To install all dependecies
 ```
 >./start.sh
->.venv/bin/activate
+>venv/bin/activate
 ```
 ## Set configurations
 To set train configurations configure `configurations/train_configurations.json`
