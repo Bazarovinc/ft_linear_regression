@@ -38,5 +38,8 @@ where km is an integer
 
 ## Statistics
 The reason why I set learning rate 0.9 you cat see on the next imagies
+```
+>./statistics.py
+```
 ![zeros](https://github.com/Bazarovinc/ft_linear_regression/blob/master/imagies/stat_zeros.png)
 ![random](https://github.com/Bazarovinc/ft_linear_regression/blob/master/imagies/stat_random.png)
