@@ -33,7 +33,7 @@ To predict price run
 ```
 where km is an integer
 * Results
-* 
+
 ![results_predict](https://github.com/Bazarovinc/ft_linear_regression/blob/master/imagies/lr_predict.png)
 
 ## Statistics
