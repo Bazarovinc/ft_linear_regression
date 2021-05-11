@@ -22,6 +22,7 @@ def main() -> int:
         )
         lr_model.train()
         coefs = write_data(lr_model, data)
+        print(f'Train results:\n\tb0={coefs.b0}\n\tb1={coefs.b1}')
         if configurations.visualisation_graphic:
             visualise_data(data, coefs)
         if configurations.visualisation_train:
