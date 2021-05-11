@@ -33,7 +33,9 @@ To predict price run
 ```
 where km is an integer
 * Results
+* 
 ![results_predict](https://github.com/Bazarovinc/ft_linear_regression/blob/master/imagies/lr_predict.png)
+
 ## Statistics
 The reason why I set learning rate 0.9 you cat see on the next imagies
 ![zeros](https://github.com/Bazarovinc/ft_linear_regression/blob/master/imagies/stat_zeros.png)
