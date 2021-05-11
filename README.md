@@ -15,11 +15,17 @@ To start train use
 >./train.py
 ```
 * Results
+
 ![results](https://github.com/Bazarovinc/ft_linear_regression/blob/master/imagies/lr_train.png)
+
 * Error dependens
+
 ![error](https://github.com/Bazarovinc/ft_linear_regression/blob/master/imagies/errors.png)
+
 * Determination dependens
+
 ![determination](https://github.com/Bazarovinc/ft_linear_regression/blob/master/imagies/determination.png)
+
 ## Predict
 To predict price run
 ```
