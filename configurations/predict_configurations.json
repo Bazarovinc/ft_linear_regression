@@ -1,0 +1,5 @@
+{
+  "visualisation": true,
+  "coefficients_file": "coefficients.json",
+  "dataset": "data.csv"
+}

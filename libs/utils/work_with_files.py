@@ -1,17 +1,10 @@
-import pandas as pd
 import json
-from typing import Union, Type
+
+import pandas as pd
+
 from libs import models
-from libs.utils.normalization import denormalize_coefficents
 from libs.models.coefficients import Coefficients
-
-
-def open_configurations_file(filename: str, configurations_class: Union[Type[models.TrainConfigurations]]) \
-        -> Union[models.TrainConfigurations]:
-    with open(filename) as json_file:
-        data = json.load(json_file)
-        configurations = configurations_class(**data)
-        return configurations
+from libs.utils.normalization import denormalize_coefficients
 
 
 def read_dataset(filename: str) -> pd.DataFrame:
@@ -19,9 +12,16 @@ def read_dataset(filename: str) -> pd.DataFrame:
     return data
 
 
-def write_data(lr_model: models.LinearRegressionModel, data: pd.DataFrame):
-    b0, b1 = denormalize_coefficents(data.km.to_numpy(), data.price.to_numpy(), lr_model.b0, lr_model.b1)
+def write_data(lr_model: models.LinearRegressionModel, data: pd.DataFrame) -> models.Coefficients:
+    b0, b1 = denormalize_coefficients(
+        data.km.to_numpy(), data.price.to_numpy(), lr_model.b0, lr_model.b1
+    )
     coefs = Coefficients(b0=b0, b1=b1)
     with open('coefficients.json', 'w') as output_file:
         json.dump(coefs.dict(), output_file)
     return coefs
+
+
+def get_json_data(filename: str) -> dict:
+    with open(filename) as json_file:
+        return json.load(json_file)
