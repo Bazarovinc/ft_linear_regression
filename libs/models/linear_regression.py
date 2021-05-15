@@ -5,8 +5,7 @@ import pandas as pd
 
 from libs.models.train_comfigurations import TrainConfigurations
 from libs.utils.normalization import normalize_data
-from libs.utils.stat_functions import (determination, error_function,
-                                       linear_function)
+from libs.utils.stat_functions import (determination, error_function, linear_function)
 
 
 class LinearRegressionModel:
@@ -26,13 +25,12 @@ class LinearRegressionModel:
         self.iterations: int = 0
 
     def train(self) -> None:
+        cur_b0 = self.b0
+        cur_b1 = self.b1
         while True:
-            self.iterations += 1
             estimated = linear_function(self.normalized_x, self.b0, self.b1)
-            self.b0 -= (self.learning_rate / self.data_size) * sum(estimated - self.normalized_y)
-            self.b1 -= (self.learning_rate / self.data_size) * sum(
-                (estimated - self.normalized_y) * self.normalized_x
-            )
+            cur_b0 -= (self.learning_rate / self.data_size) * sum(estimated - self.normalized_y)
+            cur_b1 -= (self.learning_rate / self.data_size) * sum((estimated - self.normalized_y) * self.normalized_x)
             error = error_function(self.normalized_x, self.normalized_y, estimated)
             determ_coef = determination(self.normalized_x, self.normalized_y, estimated)
             if (
@@ -44,8 +42,9 @@ class LinearRegressionModel:
                     or determ_coef == 1
                 )
             ):
-                self.errors.append(error)
-                self.determination_coefs.append(determ_coef)
                 break
+            self.iterations += 1
+            self.b0 = cur_b0
+            self.b1 = cur_b1
             self.errors.append(error)
             self.determination_coefs.append(determ_coef)
