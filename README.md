@@ -1,10 +1,16 @@
 # ft_linear_regression
 21 School project about linear regression
-## start
+# About the project
+The goal of the project is to introduce students to linear regression. In this project we have to files: `train.py` and `predict.py`.
+The task is to get coefficients of linear function by training on `data.csv`. In `data.csv` we have car's prices and mileage. When the model is trained, we should to test it, and make a prediction by runnint `predict.py`.
+## Installing dependecies and running virtual envirnment
 To install all dependecies
 ```
 >./start.sh
->venv/bin/activate
+```
+To activate virtual envirnment
+```
+>source .venv/bin/activate
 ```
 ## Set configurations
 To set train configurations configure `configurations/train_configurations.json`
