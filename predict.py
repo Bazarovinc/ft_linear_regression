@@ -21,7 +21,7 @@ def get_args() -> Optional[int]:
 
 
 def main() -> int:
-    if new_km := get_args():
+    if (new_km := get_args()) is not None:
         if new_km < 0:
             print("Error! The number of km can't be less than 0!")
             return 1
