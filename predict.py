@@ -9,14 +9,17 @@ from libs import models
 from libs.utils.make_prediction import get_prediction
 from libs.utils.visualisation import previsual
 from libs.utils.work_with_files import get_json_data
+from libs.utils.stat_functions import linear_function
 
 
 def get_args() -> Optional[int]:
     km = None
     if len(sys.argv) > 1:
         for arg in sys.argv:
-            if arg.isdigit():
+            try:
                 km = int(arg)
+            except ValueError:
+                pass
     return km
 
 
@@ -38,13 +41,13 @@ def main() -> int:
             print('There is no file with coefficients!')
             return 1
         if coefs.b0 == 0 and coefs.b1 == 0:
-            print(f'The car price is {coefs.b0 + coefs.b1 * new_km}')
+            print(f'The car price is {linear_function(new_km, coefs.b0, coefs.b1)}')
             return 1
         price = round(get_prediction(new_km, coefs), 4)
         if price < 0:
             price = 0
         print(f'The car price is {price}')
-        if configurations.visualisation:
+        if configurations.visualisation and price != 0:
             previsual(price, new_km, coefs, configurations)
     else:
         print('There is an error in input number!')
