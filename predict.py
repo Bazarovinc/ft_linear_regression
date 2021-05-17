@@ -38,7 +38,7 @@ def main() -> int:
             print('There is no file with coefficients!')
             return 1
         if coefs.b0 == 0 and coefs.b1 == 0:
-            print('The car price is 0')
+            print(f'The car price is {coefs.b0 + coefs.b1 * new_km}')
             return 1
         price = round(get_prediction(new_km, coefs), 4)
         if price < 0:
