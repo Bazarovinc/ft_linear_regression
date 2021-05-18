@@ -16,7 +16,7 @@ def visualise_data(
     price: Optional[float] = None,
 ) -> None:
     plt.scatter(data.km, data.price, label='data')
-    x = np.arange(0, max(data.km), 10)
+    x = np.array([0, max(data.km)])
     y = linear_function(x, coefs.b0, coefs.b1)
     plt.plot(x, y, 'r', label='linear function')
     plt.xlabel('km')

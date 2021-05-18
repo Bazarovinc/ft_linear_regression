@@ -43,7 +43,7 @@ def main() -> int:
         if coefs.b0 == 0 and coefs.b1 == 0:
             print(f'The car price is {linear_function(new_km, coefs.b0, coefs.b1)}')
             return 1
-        price = round(get_prediction(new_km, coefs), 4)
+        price = round(get_prediction(new_km, coefs), 2)
         if price < 0:
             price = 0
         print(f'The car price is {price}')
