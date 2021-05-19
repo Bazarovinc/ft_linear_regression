@@ -5,7 +5,8 @@ import pandas as pd
 
 from libs.models.train_comfigurations import TrainConfigurations
 from libs.utils.normalization import normalize_data
-from libs.utils.stat_functions import (determination, error_function, linear_function)
+from libs.utils.stat_functions import (determination, error_function,
+                                       linear_function)
 
 
 class LinearRegressionModel:

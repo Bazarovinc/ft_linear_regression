@@ -3,7 +3,7 @@ import json
 
 import pydantic
 
-from libs import models
+from libs import models, templates
 from libs.utils.check_corrections import check_valid_data
 from libs.utils.visualisation import visualise_data, visualise_train_info
 from libs.utils.work_with_files import get_json_data, read_dataset, write_data
@@ -13,7 +13,7 @@ def main() -> int:
     try:
         configurations = models.TrainConfigurations(**get_json_data('configurations/train_configurations.json'))
     except pydantic.error_wrappers.ValidationError or json.decoder.JSONDecodeError:
-        print("Error! There are some errors in configuration file!")
+        print(templates.CONFIG_FILE_ERROR)
         return 1
     data = read_dataset(configurations.dataset)
     if check_valid_data(data):
@@ -22,13 +22,13 @@ def main() -> int:
         )
         lr_model.train()
         coefs = write_data(lr_model, data)
-        print(f'Train results:\n\tb0={coefs.b0}\n\tb1={coefs.b1}')
+        print(templates.TRAIN_RESULTS.format(b0=coefs.b0, b1=coefs.b1))
         if configurations.visualisation_graphic:
             visualise_data(data, coefs)
         if configurations.visualisation_train:
             visualise_train_info(lr_model)
     else:
-        print("Error! Wrong type of dataset data!")
+        print(templates.DATASET_ERROR)
         return 1
     return 0
 

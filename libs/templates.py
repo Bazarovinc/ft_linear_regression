@@ -1,0 +1,8 @@
+PREDICT = "The car price is {price}"
+NO_FILE_ERROR = "There is no file with coefficients!"
+INPUT_NUMBER_ERROR = "There is an error in input number!"
+CONFIG_FILE_ERROR = "There is an error in input number!"
+NEGATIVE_ERROR = "Error! The number of km can't be less than 0!"
+TRAIN_RESULTS = "Train results:\n\tb0={b0}\n\tb1={b1}"
+DATASET_ERROR = "Error! Wrong type of dataset data!"
+DEPENDENCE = "Dependence of {what} on iterations (learning_rate={lr})"

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from libs import models
+from libs import models, templates
 from libs.utils.stat_functions import linear_function
 from libs.utils.work_with_files import read_dataset
 
@@ -37,7 +37,7 @@ def visualise_train_info(lr_model: models.LinearRegressionModel) -> None:
     )
     plt.xlabel('iterations')
     plt.ylabel('error')
-    plt.title(f'Dependence of error on iterations (learning_rate={lr_model.learning_rate})')
+    plt.title()
     plt.grid()
     plt.legend()
     plt.show()
@@ -50,7 +50,7 @@ def visualise_train_info(lr_model: models.LinearRegressionModel) -> None:
     )
     plt.xlabel('iterations')
     plt.ylabel('R^2')
-    plt.title(f'Dependence of determination on iterations (learning_rate={lr_model.learning_rate})')
+    plt.title(templates.DEPENDENCE.format(what='determination', lr=lr_model.learning_rate))
     plt.legend()
     plt.grid()
     plt.show()
