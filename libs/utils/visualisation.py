@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -63,7 +63,7 @@ def previsual(
     visualise_data(data, coefs, km, price)
 
 
-def visualise_statistics(lr, array, type):
+def visualise_statistics(lr: float, array: List, type: str) -> None:
     plt.bar(lr, array)
     plt.xlabel('learning_rate')
     plt.ylabel('number of iterations')
